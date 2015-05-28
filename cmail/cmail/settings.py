@@ -41,6 +41,7 @@ INSTALLED_APPS = (
 	'member',
 	'notification',
 	'sim',
+	'photo',
 )
 
 MIDDLEWARE_CLASSES = (

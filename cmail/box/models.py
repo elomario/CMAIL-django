@@ -5,6 +5,6 @@ from sim.models import Sim
 class Box(models.Model):
 	address = models.CharField(max_length = 45, blank = True)
 	sim = models.ForeignKey(Sim)
-	member = models.ManyToManyField('member.Member', null = True, blank = True)
+	member = models.ManyToManyField('member.Member')
 	def __str__(self):  
 			return self.address
