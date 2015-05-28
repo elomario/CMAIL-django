@@ -12,5 +12,6 @@ class Phototype(models.Model):
 
 class Photo(models.Model):
 	image = models.ImageField(upload_to='static')
+	publication_date = models.DateTimeField('published on:', auto_now_add = True)
 	phototype=models.ForeignKey(Phototype)
 	
