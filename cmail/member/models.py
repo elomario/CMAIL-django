@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Member(models.Model):
-	user = models.OneToOneField(User)
-	box = models.ManyToManyField('box.Box', null = True, blank = True)
+	member = models.OneToOneField(User)
 	def __str__(self):  
-       	return self.user.username
+		return self.user.username
