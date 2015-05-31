@@ -42,19 +42,6 @@ def loginv(request):
         		return HttpResponseRedirect("/home/")
 	else:
 		return HttpresponseRedirect("/template/")
-
-def login_testv(request):
-	username = request.POST.get('username', '')
-    	password = request.POST.get('password', '')
-    	user = auth.authenticate(username=username, password=password)
-    	if user is not None and user.is_active:
-        	# Correct password, and the user is marked "active"
-        	auth.login(request, user)
-        	# Redirect to a success page.
-        	return HttpResponseRedirect("/account/")
-    	else:
-        	# Show an error page
-        	return HttpResponseRedirect("/home/")
 	
 def logoutv(request):
     auth.logout(request)
