@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="fr">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<header>
+	{% if user.is_authenticated %}
+  <p><p>Vous êtes connecté en tant que : <a href="/account"  resizable=yes, ">{{username}}</a></p><p align = "right"><a href="/logout/"  resizable=yes, ">Logout</a></p></p>
+{% else %}
+  <p align = "right"><a href="/login/"  resizable=yes, ">Login</a>  <a href="/register/"  resizable=yes, ">Register</a></p>
+{% endif %}
+   
+  </header>
+  <p></p>
+<body>
+    <h1>Bienvenue Chez C-Mail !</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>
