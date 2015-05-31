@@ -1,6 +1,11 @@
 <form name="image_form" action="/success/" method="post">
 Select your image: <input type="file" name="image" />
-Image Type: <input type="text" name="image_type" value="" size="8" />
+Image Type: 
+<input type="radio" name="image_type" value="colis">colis<br>
+<input type="radio" name="image_type" value="enveloppe">enveloppe<br>
+<input type="radio" name="image_type" value="pub">pub<br>
+<input type="radio" name="image_type" value="bordereau">bordereau<br>
+
  <br /><br />
-<input type="submit" value="Sign in" />
+<input type="submit" value="Upload" />
 </form>
