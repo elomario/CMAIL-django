@@ -16,8 +16,8 @@ def upload_photo(request):
 			uploaded_photo = Photo(phototype= request.POST['phototype'], image = request.POST['image'])
 			if uploaded_photo.is_valid():
 				uploaded_photo.save()
-				return HttpResponseRedirect('/success/url/')
+				return HttpResponse("Image Uploaded")
 			else:
-				return HttpResponseRedirect('/failure/url/')
+				return HttpResponse("Image Not Uploaded: Check type or File Integrity")
 		else:
-			return HttpResponseRedirect('/failure/url/')
+			return HttpResponse("ACCESS DENIED: Box Not Identified")
