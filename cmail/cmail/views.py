@@ -42,6 +42,7 @@ def loginv(request):
 			return HttpResponseRedirect("/home/")
 	else:
 		return HttpresponseRedirect("/template/")
+<<<<<<< HEAD
 
 def login_testv(request):
 	username = request.POST.get('username', '')
@@ -55,6 +56,8 @@ def login_testv(request):
 	else:
 		# Show an error page
 		return HttpResponseRedirect("/home/")
+=======
+>>>>>>> a513bf926ee19c7be9a271161274944438650a8a
 	
 def logoutv(request):
     auth.logout(request)
