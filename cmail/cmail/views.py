@@ -42,7 +42,7 @@ def loginv(request):
 			return HttpResponseRedirect("/home/")
 	else:
 		return HttpresponseRedirect("/template/")
-	
+
 def logoutv(request):
     auth.logout(request)
     # Redirect to a success page.

@@ -6,15 +6,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 
 # Create your views here.
-
+#commandes de tests
+#curl -F "sim_id=12"  -F "image=Hearthstone_Screenshot_05-26-25_22.50.03.png" localhost:8000/upload/ > test.html
 
 def upload_photo(request):
 	if request.method == 'POST':
 		sim_id= request.POST['sim_id']
 		#test if Sim with number=sim_id  exists
 		if Sim.objects.filter(number = sim_id).count()==1:
-			#with the raw http post being: blabla
-			uploaded_photo = Photo(phototype= request.POST['phototype'], image = request.POST['image'])
+		#	#with the raw http post being: blabla
+			uploaded_photo = Photo(phototype= 'Blank', image = request.POST['image'])
 			if uploaded_photo.is_valid():
 				uploaded_photo.save()
 				return HttpResponse("Image Uploaded")
