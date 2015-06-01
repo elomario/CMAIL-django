@@ -15,8 +15,9 @@ def upload_photo(request):
 		#test if Sim with number=sim_id  exists
 		if Sim.objects.filter(number = sim_id).count()==1:
 		#	#with the raw http post being: blabla
-			uploaded_photo = Photo(phototype= 'Blank', image = request.POST['image'])
-
+			#uploaded_photo = Photo(phototype= 'Blank', image = request.POST['image'])
+			uploaded_image = Image(image = request.POST['image'])
+			uploaded_photo = Photo(phototype='blank', image=uploaded_image)
 			#if uploaded_photo.is_valid():
 			uploaded_photo.save()
 			return HttpResponse("Image Uploaded")
