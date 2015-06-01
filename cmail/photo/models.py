@@ -8,6 +8,6 @@ class Photo(models.Model):
 			('bordereau', 'bordereau'),
 	)
 	#type de photos 4 colis blabla
-	phototype = models.CharField(max_length = 9,choices = TYPE_CHOICES, blank = False)
+	phototype = models.CharField(max_length = 9,choices = TYPE_CHOICES, blank = True)
 	image = models.ImageField(upload_to='static')
 	publication_date = models.DateTimeField('published on:', auto_now_add = True)
