@@ -14,5 +14,6 @@ class Photo(models.Model):
 	phototype = models.CharField(max_length = 9,choices = TYPE_CHOICES, blank = True)
 	publication_date = models.DateTimeField('published on:', auto_now_add = True)
 	notification = models.ForeignKey(Notification, null=True)
-	def __unicode__(self):
-		return self.publication_date
+	def image_tag(self):
+		return u'<img src="%s" width="200" height="200" />' % self.image.url
+	image_tag.allow_tags = True

@@ -5,7 +5,7 @@ from photo.models import Photo
 #	model = Photo
 
 class PhotoAdmin(admin.ModelAdmin):
-	list_display = ('publication_date','id','phototype','notification','image')
+	list_display = ('publication_date','id','image_tag','phototype','notification','image',)
 	#inlines=[InlinePhoto]
 	
 admin.site.register(Photo,PhotoAdmin)
