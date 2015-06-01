@@ -17,11 +17,11 @@ def upload_photo(request):
 		#	#with the raw http post being: blabla
 			uploaded_photo = Photo(phototype= 'Blank', image = request.POST['image'])
 
-			if uploaded_photo.is_valid():
-				uploaded_photo.save()
-				return HttpResponse("Image Uploaded")
-			else:
-				return HttpResponse("Image Not Uploaded: Check type or File Integrity")
+			#if uploaded_photo.is_valid():
+			uploaded_photo.save()
+			return HttpResponse("Image Uploaded")
+			#else:
+			#	return HttpResponse("Image Not Uploaded: Check type or File Integrity")
 		else:
 			return HttpResponse("ACCESS DENIED: Box Not Identified")
 	else:
