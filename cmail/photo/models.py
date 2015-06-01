@@ -1,4 +1,5 @@
 from django.db import models
+from notification.models import Notification
 # Create your models here.
 
 class Photo(models.Model):
@@ -9,9 +10,9 @@ class Photo(models.Model):
 			('bordereau', 'bordereau'),
 	)
 	#type de photos 4 colis blabla
+	image = models.ImageField(upload_to = 'static', blank=True)
 	phototype = models.CharField(max_length = 9,choices = TYPE_CHOICES, blank = True)
 	publication_date = models.DateTimeField('published on:', auto_now_add = True)
-
-class Image(models.Model):
-	photo = models.ForeignKey(Photo)
-	image = models.ImageField(upload_to = 'static')
+	notification = models.ForeignKey(Notification, null=True)
+	def __unicode__(self):
+		return self.publication_date
