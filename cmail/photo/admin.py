@@ -1,8 +1,8 @@
 from django.contrib import admin
-from photo.models import Photo
+from photo.models import Image, Photo
 
 class InlineImage(admin.TabularInline):
-	model = image
+	model = Image
 
 class PhotoAdmin(admin.ModelAdmin):
 	list_display = ('publication_date','id','phototype','image')
