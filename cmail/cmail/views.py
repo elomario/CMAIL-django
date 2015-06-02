@@ -21,6 +21,16 @@ def accountv(request):
 	html = t.render(RequestContext(request, {'vor':v,'username':user}))
 	return HttpResponse(html)
 
+def boxv(request):
+	v='48'
+	user=request.user
+	if not request.user.is_authenticated():
+		return HttpResponseRedirect("/login/")
+        else:
+		t=get_template('box.html')
+        	html = t.render(RequestContext(request, {'vor':v,'username':user}))
+        	return HttpResponse(html)
+
 def loginv(request):
 	v= '44'
 	if request.method == 'GET':	
