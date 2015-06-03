@@ -21,18 +21,34 @@ def homev(request):
 def accountv(request):
 	v= '46'
 	user=request.user
-	t=get_template('account.html')
-	html = t.render(RequestContext(request, {'vor':v,'username':user}))
-	return HttpResponse(html)
+	if request.user.is_authenticated():
+		mymember=Member.objects.get(member=user)
+		if request.method=='POST':
+			name = request.POST.get('name', '')
+               		surname = request.POST.get('surname', '')
+			billing_address = request.POST.get('billing_address', '')
+			mymember.name=name
+			mymember.surname=surname
+			mymember.billingaddress= billing_address
+			mymember.save()
+			
+
+			return HttpResponseRedirect("/account/")	
+		else:
+			t=get_template('account.html')	
+			html = t.render(RequestContext(request, {'vor':v,'username':user,'current_name':mymember.name,'current_surname':mymember.surname,'current_billing_address':mymember.billingaddress}))
+			return HttpResponse(html)
+	else:
+		return HttpResponseRedirect("/login/")
 
 def boxv(request):
 	v='48'
-	usera=request.user
+	user=request.user
 	box_list=[]
 	if not request.user.is_authenticated():
 			return HttpResponseRedirect("/login/")
         else:	
-		myusername=User.objects.get(username=usera)
+		myusername=User.objects.get(username=user)
 		mymember=Member.objects.get(member=myusername)
 		if request.method =='POST':
 			new_simn=request.POST.get('simn','')
@@ -49,7 +65,7 @@ def boxv(request):
 				for boxu in Box.objects.filter(member=mymember):
     					box_list.append(boxu)
 				t=get_template('box.html')
-        			html = t.render(RequestContext(request, {'vor':v,'username':usera,'mybox_list':box_list}))
+        			html = t.render(RequestContext(request, {'vor':v,'username':user,'mybox_list':box_list}))
         			return HttpResponse(html)		
 def loginv(request):
 	v= '44'
