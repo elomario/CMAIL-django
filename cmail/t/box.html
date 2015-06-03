@@ -4,8 +4,8 @@
 
 {% block content %}
 <ul>
-{% for sim in mysims_list %}
-    <li>{{ sim.number }}</li>
+{% for box in mybox_list %}
+    <li>{{ box.sim.number }}</li>
 {% endfor %}
 </ul>
   <form action="" method="post">
