@@ -8,3 +8,4 @@ def send_notification(request):
 			myPhoto=last_photo
 		#integrate matlab exec for image handling
 		myPhoto.type="colis"
+		
