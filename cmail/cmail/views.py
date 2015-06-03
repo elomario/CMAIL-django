@@ -29,32 +29,6 @@ def boxv(request):
 	v='48'
 	usera=request.user
 	box_list=[]
-	myusername=User.objects.get(username=usera)
-	try:
-		mymember=Member.objects.get(member=myusername)
-        except Member.DoesNotExist:
-              	mymember=None
-
-	if request.method =='POST':
-		new_simn=request.POST.get('simn','')
-		new_sim=Sim(number=new_simn, description='')
-		new_sim.save()
-		#mymember=
-		return HttpResponseRedirect("/box/")
-	else:
-		if not request.user.is_authenticated():
-			return HttpResponseRedirect("/login/")
-        	else:
-			for boxu in Box.objects.filter(member=mymember):
-    				box_list.append(boxu)
-			t=get_template('box.html')
-        		html = t.render(RequestContext(request, {'vor':v,'username':usera,'mybox_list':box_list}))
-        		return HttpResponse(html)
-	
-def boxvb(request):
-	v='48'
-	usera=request.user
-	box_list=[]
 	if not request.user.is_authenticated():
 			return HttpResponseRedirect("/login/")
         else:	
