@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Bienvenue sur votre page de gestion des box{% endblock %}
+
+{% block content %}
+<ul>
+{% for box in mybox_list %}
+    <li>{{ box.sim.number }}</li>
+{% endfor %}
+</ul>
+  <form action="" method="post">
+    <label for="simn">Numéro de la SIM</label>
+    <input type="text" name="simn" value="" id="simn">
+    <input type="submit" value="Submit" />
+  </form>
+<p>Le paramètre de débug vaut {{ vor }}</p>
+{% endblock %}

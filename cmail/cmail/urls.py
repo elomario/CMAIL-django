@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^register/',views.registerv),
     url(r'^account/',views.accountv),
     url(r'^template/',views.templatev),
+    url(r'^box/',views.boxv),
     url(r'', include('photo.urls')),
 ]

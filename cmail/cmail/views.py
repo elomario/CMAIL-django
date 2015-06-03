@@ -1,9 +1,12 @@
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, get_object_or_404, redirect 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Template, Context, RequestContext
 from django.template.loader import get_template
+from box.models import Box
+from member.models import Member 
 # Create your views here.
 
 
@@ -20,6 +23,24 @@ def accountv(request):
 	t=get_template('account.html')
 	html = t.render(RequestContext(request, {'vor':v,'username':user}))
 	return HttpResponse(html)
+
+def boxv(request):
+	v='48'
+	usera=request.user
+	box_list=[]
+	if not request.user.is_authenticated():
+		return HttpResponseRedirect("/login/")
+        else:
+		myusername=User.objects.get(username=usera)
+		try:
+			mymember=Member.objects.get(member=myusername)
+		except Member.DoesNotExist:
+			mymember=None
+		for boxu in Box.objects.filter(member=mymember):
+    			box_list.append(boxu)
+		t=get_template('box.html')
+        	html = t.render(RequestContext(request, {'vor':v,'username':usera,'mybox_list':box_list}))
+        	return HttpResponse(html)
 
 def loginv(request):
 	v= '44'
