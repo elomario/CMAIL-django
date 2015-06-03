@@ -27,12 +27,15 @@ def accountv(request):
 			name = request.POST.get('name', '')
                		surname = request.POST.get('surname', '')
 			billing_address = request.POST.get('billing_address', '')
+			ancien_pwd=request.POST.get('apassword','')
+			passwd= request.POST.get('bpassword','')
 			mymember.name=name
 			mymember.surname=surname
 			mymember.billingaddress= billing_address
 			mymember.save()
-			
-
+			if user.check_password(ancien_pwd):	
+				user.set_password(passwd)
+				user.save()
 			return HttpResponseRedirect("/account/")	
 		else:
 			t=get_template('account.html')	
