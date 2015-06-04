@@ -26,7 +26,7 @@ def accountv(request):
 		mymember=Member.objects.get(member=user)
 		if request.method=='POST':
 			name = request.POST.get('name', '')
-               		surname = request.POST.get('surname', '')
+			surname = request.POST.get('surname', '')
 			billing_address = request.POST.get('billing_address', '')
 			ancien_pwd=request.POST.get('apassword','')
 			passwd= request.POST.get('bpassword','')
@@ -50,8 +50,8 @@ def boxv(request):
 	user=request.user
 	box_list=[]
 	if not request.user.is_authenticated():
-			return HttpResponseRedirect("/login/")
-        else:	
+		return HttpResponseRedirect("/login/")
+	else:	
 		myusername=User.objects.get(username=user)
 		mymember=Member.objects.get(member=myusername)
 		if request.method =='POST':
@@ -65,12 +65,12 @@ def boxv(request):
 		else:
 			if not request.user.is_authenticated():
 				return HttpResponseRedirect("/login/")
-        		else:
+			else:
 				for boxu in Box.objects.filter(member=mymember):
     					box_list.append(boxu)
 				t=get_template('box.html')
-        			html = t.render(RequestContext(request, {'vor':v,'username':user,'mybox_list':box_list}))
-        			return HttpResponse(html)		
+				html = t.render(RequestContext(request, {'vor':v,'username':user,'mybox_list':box_list}))
+				return HttpResponse(html)		
 def loginv(request):
 	v= '44'
 	if request.method == 'GET':	
@@ -100,12 +100,12 @@ def logoutv(request):
 
 def registerv(request):
 	if request.method == 'POST':
-        	form = UserCreationForm(request.POST)
-        	if form.is_valid():
-            		new_user = form.save()
+		form = UserCreationForm(request.POST)
+		if form.is_valid():
+			new_user = form.save()
 			new_member=Member(member=new_user,name='Blank',surname='Blank',billingaddress='Blank')
 			new_member.save()
-            		return HttpResponseRedirect("/account/")
+			return HttpResponseRedirect("/account/")
 	else:
 		request.user.is_authenticated=False
 		form = UserCreationForm()
@@ -119,3 +119,13 @@ def templatev(request):
 	t=get_template('template.html')
 	html = t.render(RequestContext(request, {'vor':v,'username':user}))
 	return HttpResponse(html)                                               
+
+def technology(request):
+	t=get_template('technology.html')
+	html = t.render(RequestContext(request))
+	return HttpResponse(html)
+	
+def dev_team(request):
+	t=get_template('dev_team.html')
+	html = t.render(RequestContext(request))
+	return HttpResponse(html)    

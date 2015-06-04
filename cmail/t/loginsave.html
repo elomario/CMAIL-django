@@ -2,8 +2,10 @@
 
 {% block title %}LOGIN{% endblock %}
 {% block content %}
-
-  {% if form.errors %}
+ <div class="wrapper">
+  <div id="container">
+		<h2>LOGIN</h2>
+      {% if form.errors %}
     <p class="error">Sorry, that's not a valid username or password</p>
   {% endif %}
 
@@ -16,6 +18,9 @@
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next|escape }}" />
   </form>
+</div>
+</div>
+
 
 {% endblock %}
 

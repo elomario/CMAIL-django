@@ -17,15 +17,17 @@ Licence URI: http://www.os-templates.com/template-terms
 <body id="top">
 <div class="wrapper">
   <div id="header">
-    <div id="logo">
-      <h1><a href="index.html">C-MAIL</a></h1>
-      <p>Smart Mailbox</p>
+	</a><img class="img" src="{%static "cmail_logo.png" %}" height= 40 width= 50/>
+	<div id="logo">     
+      <h1><a href="/home"> C-MAIL</h1>
+	  
     </div>
+
     <div id="topnav">
       <ul>
-        <li class="active"><a href="index.html">Presentation</a></li>
-        <li><a href="pages/style-demo.html">C-MAIL Technology</a></li>
-        <li><a href="pages/full-width.html">Dev Team</a></li>
+        <li class><a href="/home">Presentation</a></li>
+        <li><a href="/technology">C-MAIL Technology</a></li>
+        <li><a href="/devteam">Dev Team</a></li>
 			{% if user.is_authenticated %}
 		<li>Logged in as : <a href="/account"  resizable=yes, ">{{username}}</a></li>
 		<li><a href="/logout/"  resizable=yes, ">Logout</a></li>
@@ -42,12 +44,16 @@ Licence URI: http://www.os-templates.com/template-terms
 <body>
     {% block content %}{% endblock %}
 </body>
+<br class="clear" />
+<br class="clear" />
+<br class="clear" />
+
 <div class="wrapper">
   <div id="footer">
     <div id="newsletter">
       <h2>Stay In The Know !</h2>
       <p>Please enter your email to join our mailing list</p>
-      <form action="#" method="post">
+      <form action="#" method="post" name="newsletter">
         <fieldset>
           <legend>News Letter</legend>
           <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
@@ -57,33 +63,10 @@ Licence URI: http://www.os-templates.com/template-terms
       <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
     </div>
     <div class="footbox">
-      <h2>Lacus interdum</h2>
+      <h2>Contacts</h2>
       <ul>
-        <li><a href="#">Praesent et eros</a></li>
-        <li><a href="#">Praesent et eros</a></li>
-        <li><a href="#">Lorem ipsum dolor</a></li>
-        <li><a href="#">Suspendisse in neque</a></li>
-        <li class="last"><a href="#">Praesent et eros</a></li>
-      </ul>
-    </div>
-    <div class="footbox">
-      <h2>Lacus interdum</h2>
-      <ul>
-        <li><a href="#">Praesent et eros</a></li>
-        <li><a href="#">Praesent et eros</a></li>
-        <li><a href="#">Lorem ipsum dolor</a></li>
-        <li><a href="#">Suspendisse in neque</a></li>
-        <li class="last"><a href="#">Praesent et eros</a></li>
-      </ul>
-    </div>
-    <div class="footbox">
-      <h2>Lacus interdum</h2>
-      <ul>
-        <li><a href="#">Praesent et eros</a></li>
-        <li><a href="#">Praesent et eros</a></li>
-        <li><a href="#">Lorem ipsum dolor</a></li>
-        <li><a href="#">Suspendisse in neque</a></li>
-        <li class="last"><a href="#">Praesent et eros</a></li>
+		<li>+33 7 83 91 79 83 (SMS Hotline)</li>
+		<li>support@c-mail.com</li>
       </ul>
     </div>
     <br class="clear" />

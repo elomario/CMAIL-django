@@ -5,6 +5,8 @@ from cmail import views
 
 urlpatterns = (
     url(r'^admin/', include(admin.site.urls)),
+	url(r'^technology/', views.technology),
+	url(r'^devteam/', views.dev_team),	
     url(r'^home/',views.homev),
     url(r'^login/',views.loginv),
     url(r'^logout/', views.logoutv),
