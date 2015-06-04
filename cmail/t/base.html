@@ -1,20 +1,92 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html lang="fr">
-<head>
-    <title>{% block title %}{% endblock %}</title>
-</head>
+<!DOCTYPE html>
+{% load staticfiles %}
+<!--
+Template Name: Darkness
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
 
-<header>
-	{% if user.is_authenticated %}
-  <p><p>Vous êtes connecté en tant que : <a href="/account"  resizable=yes, ">{{username}}</a></p><p align = "right"><a href="/logout/"  resizable=yes, ">Logout</a></p></p>
-{% else %}
-  <p align = "right"><a href="/login/"  resizable=yes, ">Login</a>  <a href="/register/"  resizable=yes, ">Register</a></p>
-{% endif %}
-   
-  </header>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C-MAIL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel=StyleSheet href="{%static "layout/styles/layout.css" %}" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper">
+  <div id="header">
+    <div id="logo">
+      <h1><a href="index.html">C-MAIL</a></h1>
+      <p>Smart Mailbox</p>
+    </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="index.html">Presentation</a></li>
+        <li><a href="pages/style-demo.html">C-MAIL Technology</a></li>
+        <li><a href="pages/full-width.html">Dev Team</a></li>
+			{% if user.is_authenticated %}
+		<li>Logged in as : <a href="/account"  resizable=yes, ">{{username}}</a></li>
+		<li><a href="/logout/"  resizable=yes, ">Logout</a></li>
+		{% else %}
+		<li><a href="/login/"  resizable=yes, ">Login</a></li>
+		<li><a href="/register/"  resizable=yes, ">Register</a> </li>
+		{% endif %}
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
   <p></p>
 <body>
-    <h1>Bienvenue Chez C-Mail !</h1>
     {% block content %}{% endblock %}
 </body>
+<div class="wrapper">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>Stay In The Know !</h2>
+      <p>Please enter your email to join our mailing list</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>News Letter</legend>
+          <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="GO" />
+        </fieldset>
+      </form>
+      <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Lacus interdum</h2>
+      <ul>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Praesent et eros</a></li>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Suspendisse in neque</a></li>
+        <li class="last"><a href="#">Praesent et eros</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
 </html>

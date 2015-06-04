@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+<div class="wrapper">
+  <div id="latest">
+    <div class="fl_left"><a href="#"><img src="images/demo/575x300.gif" alt="" /></a></div>
+    <div class="fl_right">
+      <h2>Projet Innovant, INSA de Lyon</h2>
+      <p>C-MAIL est un projet innovant conduit par une &eacute;quipe de 5 &eacute;tudiants du d&eacute;partement T&eacute;l&eacute;communications, Services et Usages de l&apos;INSA de Lyon.</p>
+      <ul>
+        <li class="last"><a href="#"><img src="{%static "layout/logo_insa.jpeg" %}" height=100 width= 100 alt="" /></a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+{% block title %}Bienvenue sur notre page d'acceuil{% endblock %}
+
+{% block content %}
+<p>Le paramètre vaut {{ vor }}</p>
+{% endblock %}
