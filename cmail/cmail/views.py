@@ -8,6 +8,7 @@ from django.template.loader import get_template
 from box.models import Box
 from member.models import Member
 from sim.models import Sim 
+from notification.models import Notification
 # Create your views here.
 
 
@@ -117,4 +118,4 @@ def templatev(request):
 	user=request.user
 	t=get_template('template.html')
 	html = t.render(RequestContext(request, {'vor':v,'username':user}))
-	return HttpResponse(html)
+	return HttpResponse(html)                                               

@@ -20,6 +20,7 @@ def upload_photo(request):
 			mySim=Sim.objects.get(number = sim_id)
 			myBox=Box.objects.get(sim = mySim)
 			myNotification = Notification(title = 'image uploaded from arduino', box=myBox)
+			#Traitement d'image
 			myNotification.save()
 			#Polishing Photo object and save to DBB
 			uploaded_photo.notification=myNotification
