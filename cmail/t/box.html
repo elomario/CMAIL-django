@@ -3,15 +3,99 @@
 {% block title %}Bienvenue sur votre page de gestion des box{% endblock %}
 
 {% block content %}
+
+<style>
+form,input,select,textarea{margin:0; padding:0; color:#000;}
+
+div.box {
+margin:0 auto;
+width:500px;
+background:#f7f7f7;
+position:relative;
+top:0px;
+}
+
+div.box h1 { 
+color:#ffffff;
+font-size:18px;
+text-transform:uppercase;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #161712;
+border-top:1px solid #161712; 
+}
+
+div.box label {
+width:100%;
+display: block;
+background:#f7f7f7;
+padding:10px 0 10px 0;
+}
+
+div.box label span {
+display: block;
+color:#131313;
+font-size:13px;
+float:left;
+width:100px;
+text-align:right;
+padding:5px 20px 0 0;
+}
+
+div.box .input_text {
+padding:10px 10px;
+width:300px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+}
+
+div.box .message{
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+overflow:hidden;
+height:150px;
+}
+
+div.box .coolbutton
+{
+margin:0 0 0px 0;
+padding:10px 10px;
+color:#FFFFFF;
+font-size:13px;
+background:#CC0000;
+border:0px;
+position: relative;
+top:5px;
+left:120px;
+width:200px;
+}
+</style>
+
+
 <ul>
-{% for box in mybox_list %}
-    <li>{{ box.sim.number }}</li>
-{% endfor %}
+
 </ul>
+ <div class="wrapper">
+  <div id="container">
+  <h2>My C-MAIL box credentials </h2>
+  <p>Currently, your SIM number is {{ mybox_list}}.
+  
   <form action="" method="post">
-    <label for="simn">Numéro de la SIM</label>
-    <input type="text" name="simn" value="" id="simn">
-    <input type="submit" value="Submit" />
+    <div class="box">
+	<label>
+	<span>SIM Number:</span>
+    <input type="text" class="input_text" name="simn" value="" id="simn">
+    <input type="submit" class="coolbutton" value="Change my SIM number now" />
+	</label>
+	</div>
   </form>
-<p>Le paramètre de débug vaut {{ vor }}</p>
+  </div>
+  </div>
 {% endblock %}

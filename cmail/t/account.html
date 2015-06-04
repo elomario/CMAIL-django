@@ -3,30 +3,115 @@
 {% block title %}Bienvenue sur votre page de gestion de compte{% endblock %}
 
 {% block content %}
+<style>
+form,input,select,textarea{margin:0; padding:0; color:#000;}
+
+div.box {
+margin:0 auto;
+width:500px;
+background:#f7f7f7;
+position:relative;
+top:0px;
+}
+
+div.box h1 { 
+color:#ffffff;
+font-size:18px;
+text-transform:uppercase;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #161712;
+border-top:1px solid #161712; 
+}
+
+div.box label {
+width:100%;
+display: block;
+background:#f7f7f7;
+padding:10px 0 10px 0;
+}
+
+div.box label span {
+display: block;
+color:#131313;
+font-size:13px;
+float:left;
+width:100px;
+text-align:right;
+padding:5px 20px 0 0;
+}
+
+div.box .input_text {
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+}
+
+div.box .message{
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+overflow:hidden;
+height:150px;
+}
+
+div.box .coolbutton
+{
+margin:0 0 0px 0;
+padding:4px 7px;
+color:#FFFFFF;
+font-size:13px;
+background:#CC0000;
+border:0px;
+position: relative;
+top:px;
+left:250px;
+width:50px;
+}
+</style>
  <div class="wrapper">
   <div id="container">
-		<h2>My account</h2>
+  
+		{% if user.is_authenticated %}
+		<h2>{{username}}'s account</h2>
+		<p>Welcome, {{username}}! You can change your box settings by clicking <a href="/box/", ">HERE</a></p>
+		{% endif %}
+		<p>You can also customize your account below:</p>
   <form action="" method="post">
-    <p><label>Name</label>
-    <input type="text" name="name" value="{{current_name}}" id="name"></p>
 
-    <p><label>Surname</label>
-    <input type="text" name="surname" value="{{current_surname}}" id="surname"></p>
-
-    <p><label>Billing Address:</label>
-    <input type="text" name="billing_address" value="{{current_billing_address}}" id="billing_address"></p>
-    
-    <p><label for="password">Current Password</label>
-    <input type="password" name="apassword" value="" id="apassword"></p>
-	
-    <p><label for="password">New Password</label>
-    <input type="password" name="bpassword" value="" id="bpassword"></p>
-   <input type="submit" value="submit	" />
+    <div class="box">
+	<label>
+	<span> Name:</span>
+    <input type="text" class="input_text" name="name" value="{{current_name}}" id="name">
+	</label>
+	<label>
+	<span>Surname:</span>
+    <input type="text" class="input_text" name="surname" value="{{current_surname}}" id="surname">
+	</label>
+    <label>
+	<span>Billing Address:</span>
+	<textarea type="text" class="message" name="billing_address"value="{{current_billing_address}}" id="billing_address"></textarea>
+    </label>
+    <label> 
+	<span>Current Password:</span>
+    <input type="password" class="input_text" name="apassword" value="" id="apassword"></p>
+	</label>
+    <label>
+	<span>New Password:</span>
+    <input type="password" class="input_text" name="bpassword" value="" id="bpassword"></p>
+   <input type="submit" class="coolbutton" value="submit" />
+   </label>
     <input type="hidden" name="next" value="{{ next|escape}}" />
+	</div>
   </form>
 
-<p><a href="/box/"  resizable=yes, ">Gestion de mes produits cmail</a></p>
-<p>Le paramètre de débug vaut {{ vor }}</p>
 </div>
 </div>
 {% endblock %}

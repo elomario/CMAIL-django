@@ -121,11 +121,13 @@ def templatev(request):
 	return HttpResponse(html)                                               
 
 def technology(request):
+	user=request.user
 	t=get_template('technology.html')
-	html = t.render(RequestContext(request))
+	html = t.render(RequestContext(request, {'username':user}))
 	return HttpResponse(html)
 	
 def dev_team(request):
+	user=request.user
 	t=get_template('dev_team.html')
-	html = t.render(RequestContext(request))
+	html = t.render(RequestContext(request, {'username':user}))
 	return HttpResponse(html)    

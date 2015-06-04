@@ -2,21 +2,102 @@
 
 {% block title %}LOGIN{% endblock %}
 {% block content %}
+<style>
+
+form,input,select,textarea{margin:0; padding:0; color:#000;}
+
+div.box {
+margin:0 auto;
+width:500px;
+background:#f7f7f7;
+position:relative;
+top:0px;
+}
+
+div.box h1 { 
+color:#ffffff;
+font-size:18px;
+text-transform:uppercase;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #161712;
+border-top:1px solid #161712; 
+}
+
+div.box label {
+width:100%;
+display: block;
+background:#f7f7f7;
+padding:10px 0 10px 0;
+}
+
+div.box label span {
+display: block;
+color:#131313;
+font-size:13px;
+float:left;
+width:100px;
+text-align:right;
+padding:5px 20px 0 0;
+}
+
+div.box .input_text {
+padding:10px 10px;
+width:200px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+}
+
+div.box .message{
+padding:7px 7px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+overflow:hidden;
+height:150px;
+}
+
+div.box .coolbutton
+{
+margin:0 0 0px 0;
+padding:4px 7px;
+color:#FFFFFF;
+font-size:13px;
+background:#CC0000;
+border:0px;
+position: relative;
+top:px;
+left:px;
+width:50px;
+}
+</style>
  <div class="wrapper">
   <div id="container">
 		<h2>LOGIN</h2>
       {% if form.errors %}
     <p class="error">Sorry, that's not a valid username or password</p>
-  {% endif %}
+	{% endif %}
 
   <form action="" method="post">
-    <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
+	<div class="box">
+    <label>
+	<span>User name:</span>
+    <input type="text" class="input_text" name="username" value="" id="username">
+	</label>
+	<label>
+    <span>Password:</span>
+    <input type="password" class="input_text" name="password" value="" id="password">
 
-    <input type="submit" value="login" />
+    <input type="submit" class="coolbutton" value="Login" />
+	</label>	
     <input type="hidden" name="next" value="{{ next|escape }}" />
+	</div>
+
   </form>
 </div>
 </div>

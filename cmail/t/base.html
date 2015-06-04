@@ -13,27 +13,28 @@ Licence URI: http://www.os-templates.com/template-terms
 <title>C-MAIL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel=StyleSheet href="{%static "layout/styles/layout.css" %}" type="text/css" />
+
 </head>
 <body id="top">
 <div class="wrapper">
   <div id="header">
-	</a><img class="img" src="{%static "cmail_logo.png" %}" height= 40 width= 50/>
+	
 	<div id="logo">     
-      <h1><a href="/home"> C-MAIL</h1>
+	<div class=imglogo><a href="/home"><img src="{%static "cmail_logo.png" %}"height=50 /></a></div>
 	  
     </div>
 
     <div id="topnav">
       <ul>
-        <li class><a href="/home">Presentation</a></li>
+        <li><a href="/home">Presentation</a></li>
         <li><a href="/technology">C-MAIL Technology</a></li>
         <li><a href="/devteam">Dev Team</a></li>
-			{% if user.is_authenticated %}
-		<li>Logged in as : <a href="/account"  resizable=yes, ">{{username}}</a></li>
-		<li><a href="/logout/"  resizable=yes, ">Logout</a></li>
+		{% if user.is_authenticated %}
+		<li><a href="/account"> My account</a></li>
+		<li><a href="/logout">Logout from {{username}}</a></li>
 		{% else %}
-		<li><a href="/login/"  resizable=yes, ">Login</a></li>
-		<li><a href="/register/"  resizable=yes, ">Register</a> </li>
+		<li><a href="/login">Login</a></li>
+		<li><a href="/register">Register</a> </li>
 		{% endif %}
       </ul>
     </div>
@@ -51,14 +52,17 @@ Licence URI: http://www.os-templates.com/template-terms
 <div class="wrapper">
   <div id="footer">
     <div id="newsletter">
-      <h2>Stay In The Know !</h2>
-      <p>Please enter your email to join our mailing list</p>
+      <h2>Stay In The Know: Enter your Email !</h2>
+      <p></p>
       <form action="#" method="post" name="newsletter">
-        <fieldset>
+        <div class="box">
+		<fieldset>
           <legend>News Letter</legend>
-          <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+          <input type="text" value="Join our Mailing List&hellip;"  onfocus="this.value=(this.value=='Join our Mailing List&hellip;')? '' : this.value ;" />
           <input type="submit" name="news_go" id="news_go" value="GO" />
-        </fieldset>
+		</fieldset>
+		
+		</div>
       </form>
       <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
     </div>

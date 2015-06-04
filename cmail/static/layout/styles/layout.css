@@ -13,7 +13,7 @@ File: Layout CSS
 @import url("tables.css");
 
 html{overflow-y:scroll;}
-body{margin:0; padding:0; font-size:12px; font-family:verdana, Arial, Helvetica, sans-serif; color:#525252; background-color:#131313;}
+body{margin:0; padding:0; font-size:12px; font-family:verdana, Arial, Helvetica, sans-serif; font-weight:bold; color:#131313; background-color:#f7f7f7;}
 
 .justify{text-align:justify;}
 .bold{font-weight:bold;}
@@ -36,8 +36,8 @@ img{display:block; margin:0; padding:0; border:0;}
 
 /* ----------------------------------------------Wrapper------------------------------------- */
 
-div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
-div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, div.wrapper h6{margin:0; padding:0 0 8px 0; font-size:20px; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; border-bottom:1px dotted #4C4C4C;}
+div.wrapper{display:block; width:97%; margin:0; padding:0; text-align:left;}
+div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, div.wrapper h6{margin:0; padding:0 0 8px 0; font-size:20px; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif; border-bottom:1px dotted #4C4C4C;}
 
 /* ----------------------------------------------Generalise------------------------------------- */
 
@@ -45,11 +45,13 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 /* ----------------------------------------------Header------------------------------------- */
 
-#header{display:block; position:relative; width:920px; margin:0 auto; padding:5px 20px 15px 20px; color:#DBDBDB; background-color:#232323; font-family:Georgia, "Times New Roman", Times, serif;}
-#header #logo{display:block; float:left; width:160px; margin-top:-25px; margin-left:45px}
+#header{display:block; position:relative; width:100%; margin:0 auto; padding:5px 20px 15px 20px; color:#F7F7F7; background-color:#232323; font-weight:bold; font-family:Georgia, "Times New Roman", Times, serif;}
+#header #logo{display:block; float:left; width:160px; margin-left:50px; margin-top:-40px;}
 #header #logo h1, #header #logo p{margin:0; padding:0; line-height:normal;}
-#header #logo h1{margin:0px; padding:0; font-size:42px; border:none; text-transform:uppercase;}
-#header h1 a{color:#FDC609; background-color:#232323;}
+#header #logo h1{margin-top:-30px; padding:0; font-size:36px; border:none; text-transform:uppercase;}
+#header h1 a{color:#FFFFFF; background-color:#232323;}
+#header div.imglogo img{margin-left:45px;  margin-top:55px;padding:0; border:none;}
+
 
 /* ----------------------------------------------BreadCrumb------------------------------------- */
 
@@ -78,17 +80,17 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #intro li{display:block; float:left; width:300px; margin:0 30px 0 0; padding:0;}
 #intro li.last{margin-right:0;}
 #intro h2, #intro p, #intro img, #intro div{margin:0 0 20px 0; padding:0;}
-#intro h2{padding-bottom:8px; color:#FFFFFF; background-color:#131313;}
+#intro h2{padding-bottom:8px; color:#131313; background-color:#F7F7F7;}
 #intro div.imgholder{display:block; width:300px;}
-#intro div.imgholder img{margin-left:100px; padding:0; border:none;}
+#intro div.imgholder img{margin-left:0px; padding:0; border:none;}
 #intro p.readmore{margin:0;}
-#intro p.readmore a{padding:5px 15px; font-weight:bold; color:#FDC609; background-color:#1E1E1E;}
+#intro p.readmore a{padding:5px 15px; font-weight:bold; color:#B6B6B4; background-color:#1E1E1E;}
 
 /* ----------------------------------------------Content------------------------------------- */
 
-#container{padding:30px 0; line-height:1.4em; color:#525252; background-color:#131313;}
-#container a{color:#FDC609; background-color:#131313;}
-#container h1, #container h2, #container h3, #container h4, #container h5, #container h6{margin-bottom:20px; padding-bottom:8px; border-bottom:1px dotted #999999;}
+#container{padding:20px 0 0 0px; line-height:1.4em;  background-color:#f7f7f7;}
+#container a{color:#FDC609; background-color:#f7f7f7;}
+#container h1, #container h2, #container h3, #container h4, #container h5, #container h6{margin-bottom:20px; color:#131313; padding-bottom:8px; border-bottom:1px dotted #999999;}
 #content{display:block; float:left; width:560px;}
 
 /* Comments */
@@ -137,15 +139,14 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #column #latestnews .imgl{margin:0 10px 10px 0; padding:4px;}
 
 /* ----------------------------------------------Footer------------------------------------- */
-
-#footer{display:block; position:relative; width:920px; margin:0 auto; padding:20px; color:#98989A; background-color:#232323;}
+#footer{display:block; position:relative; width:100%; bottom:0 AUTO; margin: 0 auto; padding:20px; color:#FFFFFF; background-color:#232323;}
 #footer a{color:#FDC609; background-color:#232323;}
-#footer h2{margin-bottom:10px; border-bottom-color:#98989A;}
-#footer p, #footer ul, #footer a{margin:0; padding:0; font-weight:normal; list-style:none; line-height:normal;}
-#footer .footbox{display:block; float:right; width:210px; margin:0 0 0 15px; padding:0;}
-#footer li{margin-bottom:3px;}
+#footer h2{margin-bottom:10px; border-bottom-color:#98989A;font-weight:bold;}
+#footer p, #footer ul, #footer a{margin:0; padding:0; font-weight:bold; list-style:none; line-height:normal;}
+#footer .footbox{display:block; float:right; width:300px; margin:0 0 0 0px; padding:0 50px 0 0 ;}
+#footer li{margin-bottom:3px;font-weight:bold;}
 #footer .last{margin:0;}
-#newsletter{display:block; float:left; width:300px;}
+#newsletter{display:block; float:left; width:334px;}
 
 /* ----------------------------------------------Copyright------------------------------------- */
 
