@@ -85,14 +85,15 @@ width:200px;
  <div class="wrapper">
   <div id="container">
   <h2>My C-MAIL box credentials </h2>
-  <p>Currently, your SIM number is {{ mybox_list}}.
-  
+  <p>Currently, your SIM numbers are {% for box in mybox_list %}
+  <p>{{box.sim}}  {{box.address}}</p>
+{%endfor%}
   <form action="" method="post">
     <div class="box">
 	<label>
 	<span>SIM Number:</span>
     <input type="text" class="input_text" name="simn" value="" id="simn">
-    <input type="submit" class="coolbutton" value="Change my SIM number now" />
+    <input type="submit" class="coolbutton" value="Add a SIM number" />
 	</label>
 	</div>
   </form>
