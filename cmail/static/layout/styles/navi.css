@@ -8,9 +8,9 @@ Licence URI: http://www.os-templates.com/template-terms
 File: Navigation CSS
 */
 
-#header #topnav{display:block; float:right; width:900px; margin:47px 100px 0 0; padding:0; font-size:16px; font-family:Verdana, Arial, Helvetica, sans-serif; text-align:left;}
+#header #topnav{display:block; float:right; width:900px; margin:px 0px 0 0; padding:0; font-size:16px; font-family:Verdana, Arial, Helvetica, sans-serif; text-align:left;}
 #header ul{margin:0; padding:0; list-style:none;}
-#header li{display:inline; margin-right:25px;}
+#header li{display:inline; margin:0px 0px 0px 25px;}
 #header li a:link, #header li a:visited, #header li a:hover{margin:0; padding:0 3px 10px 3px; color:#FFFFFF; background-color:#232323; border-bottom:1px solid #232323;}
 #header li a:hover, #header li.active a{color:#FDC609; background-color:#232323; border-bottom-color:#FDC609;}
 #header #topnav li.last{}

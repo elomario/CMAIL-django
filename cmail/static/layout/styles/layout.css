@@ -50,7 +50,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #header #logo h1, #header #logo p{margin:0; padding:0; line-height:normal;}
 #header #logo h1{margin-top:-30px; padding:0; font-size:36px; border:none; text-transform:uppercase;}
 #header h1 a{color:#FFFFFF; background-color:#232323;}
-#header div.imglogo img{margin-left:45px;  margin-top:55px;padding:0; border:none;}
+#header div.imglogo img{margin-left:px;  margin-top:55px;padding:0; border:none;}
 
 
 /* ----------------------------------------------BreadCrumb------------------------------------- */
