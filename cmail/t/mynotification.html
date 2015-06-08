@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Bienvenue sur votre page de gestion des box{% endblock %}
+
+{% block content %}
+<ul>
+
+</ul>
+ <div class="wrapper">
+  <div id="container">
+  <h2>My C-MAIL notification </h2>
+  <p>Here are your notification</p> 
+		{% for notification in mynotification_list %}
+		{{notification.title}}
+		{%endfor%}
+  </form>
+  </div>
+  </div>
+{% endblock %}

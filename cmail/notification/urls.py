@@ -2,6 +2,5 @@ from django.conf.urls import patterns, url
 from notification import views
 
 urlpatterns = patterns('',
-        url(r'^notification/', views.send_notificationv),
+        url(r'^mynotification/', views.show_notification),
 )
-

@@ -16,4 +16,5 @@ urlpatterns = (
     url(r'^box/',views.boxv),
     url(r'', include('photo.urls')),
     url(r'', include('notification.urls')),
+	url(r'^mynotification/', include('notification.urls')),
 )
