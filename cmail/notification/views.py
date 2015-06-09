@@ -34,5 +34,5 @@ def show_notification(request):
 				for notificationu in Notification.objects.filter(box=boxu):
 					mynotification_list.append(notificationu)
 			t=get_template('mynotification.html')
-			html = t.render(RequestContext(request, {'username':useru,'mynotification_list':mynotification_list}))
+			html = t.render(RequestContext(request, {'username':useru,'member':mymember,'mynotification_list':mynotification_list}))
 		return HttpResponse(html)

@@ -9,10 +9,15 @@
  <div class="wrapper">
   <div id="container">
   <h2>My C-MAIL notification </h2>
-  <p>Here are your notification</p> 
+  <h2>Here are your notification</h2> 
 		{% for notification in mynotification_list %}
-		{{notification.title}}
+		<p>Title: {{notification.title}}</p>
+		<p>In Box: {{notification.box}}</p>
+		{{notification.photo}}	
+		<div class=imglogo><a href="/home"><img src="notification.photo.image_tag(notification.photo)" height=100 /></a></div>
+		<p>-----------------------------------------------</p>
 		{%endfor%}
+		
   </form>
   </div>
   </div>
