@@ -49,18 +49,36 @@ def boxv(request):
 	v='48'
 	user=request.user
 	box_list=[]
+	notexist=True
 	if not request.user.is_authenticated():
 		return HttpResponseRedirect("/login/")
 	else:	
 		myusername=User.objects.get(username=user)
 		mymember=Member.objects.get(member=myusername)
+		mybox=Box.objects.filter(member=mymember)	
 		if request.method =='POST':
 			new_simn=request.POST.get('simn','')
-			new_sim=Sim(number=new_simn, description='')
-			new_sim.save()
-			new_box=Box(sim=new_sim,address='')
-			new_box.save()
-			new_box.member.add(mymember)
+			new_adresse=request.POST.get('adres','')
+			for box in mybox:
+				new_simn=int(new_simn)
+				b=int(box.sim.number)
+				if(b==new_simn):
+					current_sim=box.sim
+					current_box=box
+					notexist=False
+	
+			if notexist:
+				new_sim=Sim(number=new_simn, description=new_adresse)
+				new_sim.save()
+				new_box=Box(sim=new_sim,address=new_adresse)
+				new_box.save()
+				new_box.member.add(mymember)
+			else:
+				current_sim.description=new_adresse
+				current_sim.save()
+				current_box.sim=current_sim
+				current_box.address=new_adresse
+				current_box.save()
 			return HttpResponseRedirect("/box/")
 		else:
 			if not request.user.is_authenticated():
