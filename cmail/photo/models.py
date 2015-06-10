@@ -15,7 +15,7 @@ class Photo(models.Model):
 	phototype = models.CharField(max_length = 9,choices = TYPE_CHOICES, blank = True)
 	publication_date = models.DateTimeField('published on:', auto_now_add = True)
 	notification=models.ForeignKey(Notification, null=True)
-
+	
 	
 	
 	
