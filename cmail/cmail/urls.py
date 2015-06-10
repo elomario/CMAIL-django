@@ -14,7 +14,9 @@ urlpatterns = (
 	url(r'^account/',views.accountv),
     	url(r'^template/',views.templatev),
     	url(r'^box/',views.boxv),
-    	url(r'', include('photo.urls')),
+    	url(r'^preorder/', views.commandev),
+	url(r'', include('photo.urls')),
     	url(r'', include('notification.urls')),
 	url(r'^mynotification/', include('notification.urls')),
+        
 )
