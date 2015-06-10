@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-
+		{% block notification %}
+		{{ myunreadnotification_list|length}}
+		{% endblock %}
 {% block title %}Bienvenue sur votre page de gestion des box{% endblock %}
 
 {% block content %}
@@ -8,15 +10,36 @@
 </ul>
  <div class="wrapper">
   <div id="container">
-  <h2>My C-MAIL notification </h2>
-  <h2>Here are your notification</h2> 
+  <h2>My C-MAIL notification</h2>
+  <p>Here are your notifications</p> 
+  
+		<p>================================================</p>
+		<p>Unread notifications:</p>
+		
+
 		{% for notification in mynotification_list %}
-		<p>Title: {{notification.title}}</p>
-		<p>In Box: {{notification.box}}</p>
-		{{notification.photo}}	
-		<div class=imglogo><a href="/home"><img src="notification.photo.image_tag(notification.photo)" height=100 /></a></div>
+		{% ifequal notification.checked 1 %}
+			{{notification.title}} ||
+		{%endifequal%}
+		{%endfor%}
+		
+		<p>================================================</p>
+		{% for photo in myphoto_list %}
+			<p>Here's your photo:</p>
+			<div class=imglogo><img src="/{{ photo.image.url }}" width="100" height="100" /> @url: {{ photo.image.url }}</a></div>
+		
+		<p>Phototype:{{photo.phototype}} </p>
+		<p>Title: {{photo.notification.title}}</p>
+		<p>In Box: {{photo.notification.box}}</p>
+		
+		<form action="" method="post">
+			<input type="hidden" name="notif_id" value="{{photo.notification.id}}" id="notif_id">
+			<input type="submit" value="Mark this notification as Read" name="READ" id="READ" />
+			<input type="submit" value="Mark this notification as Unread" name="UNREAD" id="UNREAD" />
+		</form>
 		<p>-----------------------------------------------</p>
 		{%endfor%}
+		
 		
   </form>
   </div>
