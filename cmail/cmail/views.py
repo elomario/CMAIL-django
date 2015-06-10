@@ -116,6 +116,12 @@ def logoutv(request):
     # Redirect to a success page.
     return HttpResponseRedirect("/home/")
 
+def commandev(request):
+	user=request.user
+	t=get_template('commande.html')
+	html = t.render(RequestContext(request, {'username':user}))
+	return HttpResponse(html)
+	
 def registerv(request):
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
