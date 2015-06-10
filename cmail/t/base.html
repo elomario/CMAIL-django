@@ -33,7 +33,6 @@ Licence URI: http://www.os-templates.com/template-terms
 		{% if user.is_authenticated %}
 		<li><a href="/account"> My account</a></li>
 		<li><a href="/mynotification">Notification</a> </li>
-		{{ myunreadnotification_list|length}}
 		<li><a href="/logout">Logout from {{username}}</a></li>
 		{% else %}
 		<li><a href="/login">Login</a></li>
