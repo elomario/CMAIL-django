@@ -91,7 +91,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #container{padding:20px 0 0 0px; line-height:1.4em;  background-color:#f7f7f7;}
 #container a{color:#FDC609; background-color:#f7f7f7;}
 #container h1, #container h2, #container h3, #container h4, #container h5, #container h6{margin-bottom:20px; color:#131313; padding-bottom:8px; border-bottom:1px dotted #999999;}
-#content{display:block; float:left; width:500px;height:400px;}
+#content{display:block; float:left; width:500px;height:450px;}
 
 /* Comments */
 

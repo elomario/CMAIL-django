@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<!--
+Template Name: Darkness
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C-MAIL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel=StyleSheet href="layout/styles/layout.css" type="text/css" />
+
+</head>
+<body id="top">
+<div class="wrapper">
+  <div id="header">
+	
+	<div id="logo">     
+	<div class=imglogo><a href="home.html"><img src="layout/cmail_logo.png" height=50 /></a></div>
+	  
+    </div>
+
+    <div id="topnav">
+      <ul>
+        <li><a href="home.html">Presentation</a></li>
+        <li><a href="technology.html">C-MAIL Technology</a></li>
+        <li><a href="dev_team.html">Dev Team</a></li>
+		<li><a href="commande.html">Pre-Order</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+  <p></p>
+<body>
+</body>
+<br class="clear" />
+<style>
+form,input,select,textarea{margin:0; padding:0; color:#000;}
+
+div.box {
+margin:0 auto;
+width:500px;
+background:#f7f7f7;
+position:relative;
+}
+
+div.box h1 { 
+color:#ffffff;
+font-size:18px;
+text-transform:uppercase;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #161712;
+border-top:1px solid #161712; 
+}
+
+div.box label {
+width:100%;
+margin: 0 0px;
+display: block;
+background:#f7f7f7;
+padding:10px 0 10px 0;
+}
+
+div.box label span {
+display: block;
+color:#131313;
+font-size:13px;
+width:100px;
+float:left;
+text-align:right;
+padding:5px 20px 0 0;
+}
+
+div.box .input_text {
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+}
+
+div.box .message{
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+overflow:hidden;
+height:150px;
+}
+
+div.box .coolbutton
+{
+margin:0 0 0px 0;
+padding:4px 7px;
+color:#FFFFFF;
+font-size:13px;
+background:#CC0000;
+border:0px;
+position: relative;
+top:px;
+left:250px;
+width:50px;
+}
+</style>
+ <div class="wrapper">
+  <div id="container">
+  
+	<h2>Pre-Order Now!</h2>
+	<p>Preordering on this page is just a way for us to know that you are interested in our products and allows us to warn you when it will be possible to buy our devices</p>
+  <form action="" method="post">
+
+    <div class="box">
+	<label>
+	<span>Email:</span>
+    <input type="text" class="input_text" name="surname" value="" id="surname">
+	</label>
+    <label>
+	<span>Delivery Address:</span>
+	<textarea type="text" class="message" name="billing_address"value="" id="billing_address"></textarea>
+    </label>
+    <label> 
+   <input type="submit" class="coolbutton" value="submit" />
+   </label>
+    <input type="hidden" name="next" value="{{ next|escape}}" />
+	</div>
+	</form>
+	</div>
+	</div>
+	
+<div class="wrapper">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>Stay In The Know: Enter your Email !</h2>
+      <p></p>
+      <form action="#" method="post" name="newsletter">
+        <div class="foot.box">
+		<fieldset>
+          <legend>News Letter</legend>
+          <input type="text" value="Join our Mailing List&hellip;"  onfocus="this.value=(this.value=='Join our Mailing List&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="GO" />
+		</fieldset>
+		
+		</div>
+      </form>
+      <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+    </div>
+    <div class="footbox">
+      <h2>Contacts</h2>
+      <ul>
+		<li>+33 7 83 91 79 83 (SMS Hotline)</li>
+		<li>support@c-mail.com</li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+</html>

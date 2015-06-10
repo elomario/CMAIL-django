@@ -1,11 +1,90 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+
 {% block content %}
+<style>
+form,input,select,textarea{margin:0; padding:0; color:#000;}
+
+div.coolbox {
+margin:0 auto;
+width:500px;
+background:#f7f7f7;
+position:relative;
+}
+
+div.coolbox h1 { 
+color:#ffffff;
+font-size:18px;
+text-transform:uppercase;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #161712;
+border-top:1px solid #161712; 
+}
+
+div.coolbox label {
+width:100%;
+margin: 0 0px;
+display: block;
+background:#f7f7f7;
+padding:10px 0 10px 0;
+}
+
+div.coolbox label span {
+display: block;
+color:#131313;
+font-size:13px;
+width:100px;
+float:left;
+text-align:right;
+padding:5px 20px 0 0;
+}
+
+div.coolbox .input_text {
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+}
+
+div.coolbox .message{
+padding:10px 10px;
+width:350px;
+background:#F5F5AB;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+overflow:hidden;
+height:150px;
+}
+
+div.coolbox .coolbutton
+{
+margin:0 0 0px 0;
+padding:4px 7px;
+color:#FFFFFF;
+font-size:13px;
+background:#CC0000;
+border:0px;
+position: relative;
+top:px;
+left:250px;
+width:50px;
+}
+</style>
+ <div class="wrapper">
+  <div id="container">
+  
+	<h2>Pre-Order Now!</h2>
+	<p>Preordering on this page is just a way for us to know that you are interested in our products and allows us to warn you when it will be possible to buy our devices</p>
   <form action="" method="post">
 
-    <div class="box">
-	<p>Preordering on this page is just a way for us to know that you are interested in our products and allows us to warn you when it will be possible to buy our devices</p>
-	<span>Email</span>
+    <div class="coolbox">
+	<label>
+	<span>Email:</span>
     <input type="text" class="input_text" name="surname" value="{{current_surname}}" id="surname">
 	</label>
     <label>
@@ -16,6 +95,8 @@
    <input type="submit" class="coolbutton" value="submit" />
    </label>
     <input type="hidden" name="next" value="{{ next|escape}}" />
-	</div
-</form>
+	</div>
+	</form>
+	</div>
+	</div>
 {% endblock %}
