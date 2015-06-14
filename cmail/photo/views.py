@@ -5,13 +5,12 @@ from sim.models import Sim
 from django.http import HttpResponse, HttpResponseRedirect
 from notification.models import Notification
 from django.core.management import call_command
-#from StringIO import StringIO 
 
 import subprocess
 
 # Create your views here.
 #commandes de tests
-#curl -F "sim_id=12"  -F "image=Hearthstone_Screenshot_05-26-25_22.50.03.png" localhost:8000/upload/ > test.html
+#curl --form "sim_id=12" --form "file_upload=@pathtoimage" c-mail.no-ip.org/upload
 
 def upload_photo(request):
 	if request.method == 'POST':
@@ -23,13 +22,30 @@ def upload_photo(request):
 			#Creating Notification object and save to DBB
 			mySim=Sim.objects.get(number = sim_id)
 			myBox=Box.objects.get(sim = mySim)
-			myNotification = Notification(title = 'image uploaded from arduino', box=myBox)
+			if Notification.objects.filter(title__contains = uploaded_photo.image).count() >= 1:
+				i=0
+				for notification in Notification.objects.filter(title__contains = uploaded_photo.image):
+					i+=1			
+				titleu=str(uploaded_photo.image) + str(i)
+				myNotification = Notification(title = titleu, box=myBox)
+			else:
+				myNotification = Notification(title = uploaded_photo.image, box=myBox)
 			#Traitement d'image
 			myNotification.save()
 			#Polishing Photo object and save to DBB
 			uploaded_photo.notification=myNotification
 			uploaded_photo.save()
 			return HttpResponse("Image Uploaded and Notification Sent")
+		else:
+			return HttpResponse("ACCESS DENIED: Box Not Identified")
+	else:
+		return HttpResponse("GET Denied")
+
+def upload_sim(request):
+	if request.method == 'POST':
+		sim_id= request.POST['sim_id']
+		if Sim.objects.filter(number = sim_id).count()==1:
+			return HttpResponse("Got your post owner of " + str(sim_id))
 		else:
 			return HttpResponse("ACCESS DENIED: Box Not Identified")
 	else:
