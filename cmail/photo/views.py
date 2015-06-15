@@ -14,7 +14,9 @@ import subprocess
 
 def upload_photo(request):
 	if request.method == 'POST':
-		sim_id= request.POST['sim_id']
+		sim_file= request.FILES['sim_id']
+		f=sim_file.read()
+		sim_id=int(f)
 		#test if Sim with number=sim_id  exists
 		if Sim.objects.filter(number = sim_id).count()==1:
 			#Creating Photo object
@@ -22,7 +24,7 @@ def upload_photo(request):
 			#Creating Notification object and save to DBB
 			mySim=Sim.objects.get(number = sim_id)
 			myBox=Box.objects.get(sim = mySim)
-			if Notification.objects.filter(title__contains = uploaded_photo.image).count() >= 1:
+			if Notification.objects.filter(title__contains = uploaded_photo.image).count() > 1:
 				i=0
 				for notification in Notification.objects.filter(title__contains = uploaded_photo.image):
 					i+=1			
@@ -35,7 +37,7 @@ def upload_photo(request):
 			#Polishing Photo object and save to DBB
 			uploaded_photo.notification=myNotification
 			uploaded_photo.save()
-			return HttpResponse("Image Uploaded and Notification Sent")
+			return HttpResponse("Image Uploaded owner of " + str(sim_id))
 		else:
 			return HttpResponse("ACCESS DENIED: Box Not Identified")
 	else:
@@ -43,9 +45,18 @@ def upload_photo(request):
 
 def upload_sim(request):
 	if request.method == 'POST':
-		sim_id= request.POST['sim_id']
-		if Sim.objects.filter(number = sim_id).count()==1:
-			return HttpResponse("Got your post owner of " + str(sim_id))
+		#sim_id= request.POST['sim_id']
+		sim_file= request.FILES['sim_id']
+		#sim_file= request.FILES['text.txt']
+		print(sim_file)
+		f=sim_file.read()
+		intsim_id=int(f)
+		sim_id=str(f,'UTF=8')
+		print(intsim_id)
+		print(sim_id)
+		
+		if Sim.objects.filter(number = intsim_id).count()==1:
+			return HttpResponse("Got your post owner of " + str(intsim_id))
 		else:
 			return HttpResponse("ACCESS DENIED: Box Not Identified")
 	else:

@@ -41,6 +41,7 @@ INSTALLED_APPS = (
 	'notification',
 	'sim',
 	'photo',
+	'django_ftpserver',
 )
 
 MIDDLEWARE_CLASSES = (
