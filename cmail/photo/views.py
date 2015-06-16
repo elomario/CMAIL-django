@@ -51,11 +51,10 @@ def upload_sim(request):
 		print(sim_file)
 		f=sim_file.read()
 		intsim_id=int(f)
-		sim_id=str(f,'UTF=8')
 		print(intsim_id)
-		print(sim_id)
-		
-		if Sim.objects.filter(number = intsim_id).count()==1:
+		# +retrieve image name sent so intsim_id == first 2 bytes of data
+		if Sim.objects.filter(number = intsim_id).count()==1
+			#create notif and photo objects with name of image already in static folder
 			return HttpResponse("Got your post owner of " + str(intsim_id))
 		else:
 			return HttpResponse("ACCESS DENIED: Box Not Identified")
