@@ -152,16 +152,21 @@ function[couleur]= SimpleColorDetection_TEST(filename)
             count=count+1;
         end
     end
-   % disp('count =');
+   %disp('count =');
    %disp(count);
     
-    if (count>30)
-        disp('This is PUB');
-        couleur=0;
-    else
-        disp('This is a letter');
-        couleur=1;
-    end
+    if (count>121)
+        disp('letter');
+        couleur=1
+    
+    elseif(count>55)
+        disp('pub');
+        couleur=0
+    elseif(count<55)
+        disp('colis');
+        couleur=2
+    end  
+ 
     
   
     

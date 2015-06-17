@@ -7,38 +7,43 @@ img = imread(filename); % lire l'image désirée pour extraire les régions
 bw = im2bw(img);
 [labels, nbLabels] = bwlabel(img);   % étiquetage des régions à l'aide de la fonction bwlabel
 % region=1 et vide=0
-
 % Méthode 2
 for i=1:1
-    %disp('for');
+   % disp('for');
     [r,l] = find(labels==i);
-    object = bwselect(bw,l,r);%on selectionne notre forme pour ne traiter que celle-ci
-    imtool(object)
+    %object = bwselect(bw,l,r);%on selectionne notre forme pour ne traiter que celle-ci
+    
+    %imtool(object)
+    %disp('apres obj');
     %if length(find(labels==i)) >30000%taille minimum
     %if length(find(labels==i)) >100%taille minimum
     %length(find(labels==i))
     object = bwselect(bw,l,r);%on selectionne notre forme pour ne traiter que celle-ci
+      %disp('apres bwselect');
     %imtool(object)
     coin=regionprops(object,'Extrema');% je calcule les coins de ma forme ( positions )
+    coin
+    %disp('apres extrema');
     
     %verifier contient 4 coins
-    f=0;
-    xTL=coin.Extrema(1,1)
-    yTL=coin.Extrema(1,2)
-    xTR=coin.Extrema(2,1)
-    yTR=coin.Extrema(2,2)
-    xRT=coin.Extrema(3,1)
-    yRT=coin.Extrema(3,2)
-    xRB=coin.Extrema(4,1)
-    yRB=coin.Extrema(4,2)
-    xBR=coin.Extrema(5,1)
-    yBR=coin.Extrema(5,2)
-    xBL=coin.Extrema(6,1)
-    yBL=coin.Extrema(6,2)
-    xLB=coin.Extrema(7,1)
-    yLB=coin.Extrema(7,2)
-    xLT=coin.Extrema(8,1)
-    yLT=coin.Extrema(8,2)
+    f=1;
+    xTL=coin.Extrema(1,1);
+    %disp('apres extrema 1,1');
+    yTL=coin.Extrema(1,2);
+    xTR=coin.Extrema(2,1);
+    yTR=coin.Extrema(2,2);
+    xRT=coin.Extrema(3,1);
+    yRT=coin.Extrema(3,2);
+    xRB=coin.Extrema(4,1);
+    yRB=coin.Extrema(4,2);
+    xBR=coin.Extrema(5,1);
+    yBR=coin.Extrema(5,2);
+    xBL=coin.Extrema(6,1);
+    yBL=coin.Extrema(6,2);
+    xLB=coin.Extrema(7,1);
+    yLB=coin.Extrema(7,2);
+    xLT=coin.Extrema(8,1);
+    yLT=coin.Extrema(8,2);
     
     
     
@@ -64,7 +69,7 @@ for i=1:1
     
     
     if( xTLinf<xLT && xLT<xTLsup && yTLinf<yLT && yLT<yTLsup)
-        disp('ADRIEN CODE');
+       % disp('ADRIEN CODE');
         
         %if (coin.Extrema(1,1)==coin.Extrema(8,1)&& coin.Extrema(1,2)==coin.Extrema(8,2))
         
@@ -141,7 +146,7 @@ for i=1:1
                         %if ( d1==d2 && d3==d4 && d3==d2)
                         
                         %disp('La forme est un colis sur l image');
-                        f=2;
+                        f=1;
                         
                     elseif ( infd1<d3 && d3<supd1 && infd2<d4 && d4<supd2 )
                         %disp('if6');
@@ -151,28 +156,28 @@ for i=1:1
                         f=1;
                     else
                         
-                        f=0;
+                        f=1;
                     end
                 else
                     %disp('La forme est particulière surment une pub');
-                    f=0;
+                    f=1;
                 end
             else
                 %disp('La forme est particulière surment une pub');
-                f=0;
+                f=1;
             end
         else
             %disp('La forme est particulière surment une pub');
-            f=0;
+            f=1;
         end
         
         
     elseif(yTR<yTLsup && yTR>yTLinf)
-        disp('ALEX CODE');
+        %disp('ALEX CODE');
         if(xRT<xRBsup && xRT>xRBinf)
             if(yBL<yBRsup && yBL>yBRinf)
                 if(xLT<xLBsup && xLT>xLBinf)
-                    disp('ALEX disdtqnce')
+                    %disp('ALEX disdtqnce')
                     d1=yTR+yTL+xTL+xTR-xRT-yRT-xRB-yRB;
                     d2=xRT+xRB+yRT+yRB-xBL-yBL-xBR-yBR;
                     d3=xBL+yBL+xBR+yBR-xLT-yLT-yLB-xLB;
@@ -188,9 +193,9 @@ for i=1:1
                     d2sup2=d2+120;
                     d2inf2=d2-120;
                     if(d3<d1sup && d3>d1inf)
-                        disp('ALEX d#')
+                       % disp('ALEX d#')
                         if(d4<d2sup && d4>d2inf)
-                            disp('ALEX d2')
+                            %disp('ALEX d2')
                             f=1;
                             if(d1>d2inf2 && d1<d2sup2)
                                 f=2;
@@ -201,9 +206,9 @@ for i=1:1
             end
         end
     else
-        disp('else finql')
+        %disp('else finql')
         %disp('La forme est particulière surment une pub');
-        f=0;
+        f=1;
    
     end
     

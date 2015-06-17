@@ -8,7 +8,7 @@ class Photo(models.Model):
 			('colis', 'colis'),
 			('enveloppe', 'enveloppe'),
 			('pub', 'pub'),
-			('bordereau', 'bordereau'),
+			('suppose', 'suppose'),
 	)
 	#type de photos 4 colis blabla
 	image = models.ImageField(upload_to = 'static', blank=True)

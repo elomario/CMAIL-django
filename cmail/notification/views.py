@@ -28,12 +28,10 @@ def send_notificationv(request):
 			mybox=mynotif.box
 			for member in mybox.member.all():
 				mymember=member
-			if myphoto.phototype !='' and myphoto.phototype !='colis' and myphoto.phototype != 'suppose':
+			if myphoto.phototype !='' and myphoto.phototype !='colis':
 				return HttpResponse( str(mymember.phone) + '/*Vous avez une '+ myphoto.phototype +' dans votre boite aux lettres.#')
 			elif myphoto.phototype =='colis':
 				return HttpResponse( str(mymember.phone) + '/*Vous avez un '+ myphoto.phototype +' dans votre boite aux lettres.#')
-			elif myphoto.phototype == 'suppose':
-				return HttpResponse( str(mymember.phone) + '/*Vous avez une lettre '+ myphoto.phototype +'e dans votre boite aux lettres.#')
 			else:
 				return HttpResponse( str(mymember.phone) + '/*Il n y a rien dans votre boite aux lettres.#')
 def show_notification(request):

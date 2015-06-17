@@ -89,11 +89,11 @@ def upload_test(request):
 			#notificationu=Notification.objects.get(title='test recette')
 			#photou=Photo.objects.get(notification=notificationu)
 			print(str(uploaded_photo.image))
-			ls_fd = subprocess.Popen('static\pi_test_forme.exe ' + str(uploaded_photo.image),stdout=subprocess.PIPE).communicate()[0]
+			ls_fd = subprocess.Popen('static\SimpleColorDetection_TEST.exe ' + str(uploaded_photo.image),stdout=subprocess.PIPE).communicate()[0]
 			print('done')
 			out = ls_fd
 			#ENDOFIMAGEHANDLING
-			if "lettre" in str(out):
+			if "letter" in str(out):
 				uploaded_photo.phototype='enveloppe'
 			elif "colis" in str(out):
 				uploaded_photo.phototype='colis'

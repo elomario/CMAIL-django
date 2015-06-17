@@ -33,7 +33,7 @@ NOTE: You will need administrator rights to run MCRInstaller.
 
 Files to package for Standalone 
 ================================
--pi_test_forme.exe
+-SimpleColorDetection_TEST.exe
 -MCRInstaller.exe 
    -if end users are unable to download the MCR using the above  
     link, include it when building your component by clicking 
