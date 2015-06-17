@@ -17,15 +17,25 @@ def send_notificationv(request):
 		if request.method == 'GET':
 			for notif in Notification.objects.all():
 				mynotif=notif
-		myphoto=Photo.objects.get(notification=mynotif)
-		mybox=mynotif.box
-		print(mybox)
-		mymember_list=mybox.member.all()
-		print(mymember_list)
-		for member in mymember_list:
-			mymember=member
-		return HttpResponse( str(mymember.phone) + '/Vous avez un '+ myphoto.phototype +' dans votre boite aux lettres.')
-
+				if notif.sent==1:
+					mynotif=notif
+		if mynotif.sent==0:
+			return HttpResponse( '+33613093720/*Vous n avez plus rien dans votre boite aux lettres.#')
+		else:
+			mynotif.sent=0
+			mynotif.save()
+			myphoto=Photo.objects.get(notification=mynotif)
+			mybox=mynotif.box
+			for member in mybox.member.all():
+				mymember=member
+			if myphoto.phototype !='' and myphoto.phototype !='colis' and myphoto.phototype != 'suppose':
+				return HttpResponse( str(mymember.phone) + '/*Vous avez une '+ myphoto.phototype +' dans votre boite aux lettres.#')
+			elif myphoto.phototype =='colis':
+				return HttpResponse( str(mymember.phone) + '/*Vous avez un '+ myphoto.phototype +' dans votre boite aux lettres.#')
+			elif myphoto.phototype == 'suppose':
+				return HttpResponse( str(mymember.phone) + '/*Vous avez une lettre '+ myphoto.phototype +'e dans votre boite aux lettres.#')
+			else:
+				return HttpResponse( str(mymember.phone) + '/*Il n y a rien dans votre boite aux lettres.#')
 def show_notification(request):
 	mynotification_list=[]
 	myphoto_list=[]

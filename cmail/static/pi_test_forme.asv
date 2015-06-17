@@ -8,7 +8,7 @@ bw = im2bw(img); % conversion dans une image binaire - fonction im2bw
 [labels, nbLabels] = bwlabel(bw); % étiquetage des régions à l'aide de la fonction bwlabel
 % region=1 et vide=0
 
-s=4;
+
 % Méthode 2
 for i=1:nbLabels
     if length(find(labels==i)) > 30000
@@ -25,10 +25,8 @@ for i=1:nbLabels
 		disp('lettre');
     elseif (s==2)
 		disp('colis');
-    elseif (s==3)
-        disp('suppo');
     else
-        disp('vide');
+        disp('undefined');
 	end
      end
 end
