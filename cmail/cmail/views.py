@@ -9,6 +9,7 @@ from box.models import Box
 from member.models import Member
 from sim.models import Sim 
 from notification.models import Notification
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your views here.
 
 
@@ -27,20 +28,24 @@ def accountv(request):
 		if request.method=='POST':
 			name = request.POST.get('name', '')
 			surname = request.POST.get('surname', '')
+			phonenumber=request.POST.get('phone_number','')
 			billing_address = request.POST.get('billing_address', '')
 			ancien_pwd=request.POST.get('apassword','')
 			passwd= request.POST.get('bpassword','')
+			mymember.phone=phonenumber		
 			mymember.name=name
 			mymember.surname=surname
-			mymember.billingaddress= billing_address
+			if billing_address!='':
+				mymember.billingaddress= billing_address
 			mymember.save()
+			print mymember.phone
 			if user.check_password(ancien_pwd):	
 				user.set_password(passwd)
 				user.save()
 			return HttpResponseRedirect("/account/")	
 		else:
 			t=get_template('account.html')	
-			html = t.render(RequestContext(request, {'vor':v,'username':user,'current_name':mymember.name,'current_surname':mymember.surname,'current_billing_address':mymember.billingaddress}))
+			html = t.render(RequestContext(request, {'current_phone_number':mymember.phone,'vor':v,'username':user,'current_name':mymember.name,'current_surname':mymember.surname,'current_billing_address':mymember.billingaddress}))
 			return HttpResponse(html)
 	else:
 		return HttpResponseRedirect("/login/")
