@@ -32,13 +32,16 @@ def accountv(request):
 			billing_address = request.POST.get('billing_address', '')
 			ancien_pwd=request.POST.get('apassword','')
 			passwd= request.POST.get('bpassword','')
-			mymember.phone=phonenumber		
-			mymember.name=name
-			mymember.surname=surname
+			if phonenumber!='':
+				mymember.phone=phonenumber		
+			if name!='':
+				mymember.name=name
+			if surname!='':
+				mymember.surname=surname
 			if billing_address!='':
 				mymember.billingaddress= billing_address
 			mymember.save()
-			print mymember.phone
+			print(mymember.phone)
 			if user.check_password(ancien_pwd):	
 				user.set_password(passwd)
 				user.save()
@@ -64,8 +67,15 @@ def boxv(request):
 		if request.method =='POST':
 			new_simn=request.POST.get('simn','')
 			new_adresse=request.POST.get('adres','')
-			for box in mybox:
+			try:
 				new_simn=int(new_simn)
+			except ValueError:
+				for boxu in Box.objects.filter(member=mymember):
+    					box_list.append(boxu)
+				t=get_template('box.html')
+				html = t.render(RequestContext(request, {'username':user,'mybox_list':box_list,'error':'PLEASE ENTER A NUMBER',}))
+				return HttpResponse(html)
+			for box in mybox:
 				b=int(box.sim.number)
 				if(b==new_simn):
 					current_sim=box.sim
@@ -92,8 +102,9 @@ def boxv(request):
 				for boxu in Box.objects.filter(member=mymember):
     					box_list.append(boxu)
 				t=get_template('box.html')
-				html = t.render(RequestContext(request, {'vor':v,'username':user,'mybox_list':box_list}))
-				return HttpResponse(html)		
+				html = t.render(RequestContext(request, {'username':user,'mybox_list':box_list}))
+				return HttpResponse(html)
+		
 def loginv(request):
 	v= '44'
 	if request.method == 'GET':	
@@ -112,7 +123,9 @@ def loginv(request):
 			return HttpResponseRedirect("/account/")
 		else:
         	# Show an error page
-			return HttpResponseRedirect("/home/")
+			return render(request, 'loginsave.html', {
+			'error':'BAD USERNAME OR/AND PASSSWORD',
+			})
 	else:
 		return HttpresponseRedirect("/template/")
 
@@ -135,6 +148,11 @@ def registerv(request):
 			new_member=Member(member=new_user,name='Blank',surname='Blank',billingaddress='Blank')
 			new_member.save()
 			return HttpResponseRedirect("/account/")
+		else:
+			form = UserCreationForm()
+			return render(request, 'register.html', {
+			'form': form, 'error':'INVALID FORM',
+			})
 	else:
 		request.user.is_authenticated=False
 		form = UserCreationForm()

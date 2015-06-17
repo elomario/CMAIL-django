@@ -79,10 +79,7 @@ width:50px;
  <div class="wrapper">
   <div id="container">
 		<h2>LOGIN</h2>
-      {% if form.errors %}
-    <p class="error">Sorry, that's not a valid username or password</p>
-	{% endif %}
-
+    <p> <FONT COLOR="FF0000"> {{error}} </FONT></p>
   <form action="" method="post">
 	<div class="coolbox">
     <label>

@@ -12,15 +12,19 @@ from photo.models import Photo
 # Create your views here.
 
 def send_notificationv(request):
-        v=55
-        user=request.user
-        if request.method == 'GET':
-                for notif in Notification.objects.all():
-                        mynotif=notif
-        lastnotif=mynotif.title
-        t=get_template('notification.html')
-        html = t.render(RequestContext(request, {'vor':v,'username':user,'notification':lastnotif}))
-        return HttpResponse(html)
+	#phonenumber/colis
+		mymember_list=[]
+		if request.method == 'GET':
+			for notif in Notification.objects.all():
+				mynotif=notif
+		myphoto=Photo.objects.get(notification=mynotif)
+		mybox=mynotif.box
+		print(mybox)
+		mymember_list=mybox.member.all()
+		print(mymember_list)
+		for member in mymember_list:
+			mymember=member
+		return HttpResponse( str(mymember.phone) + '/Vous avez un '+ myphoto.phototype +' dans votre boite aux lettres.')
 
 def show_notification(request):
 	mynotification_list=[]
