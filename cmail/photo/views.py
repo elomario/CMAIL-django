@@ -53,7 +53,7 @@ def upload_sim(request):
 		intsim_id=int(f)
 		print(intsim_id)
 		# +retrieve image name sent so intsim_id == first 2 bytes of data
-		if Sim.objects.filter(number = intsim_id).count()==1
+		if Sim.objects.filter(number = intsim_id).count()==1:
 			#create notif and photo objects with name of image already in static folder
 			return HttpResponse("Got your post owner of " + str(intsim_id))
 		else:
@@ -76,7 +76,7 @@ def upload_test(request):
 		return HttpResponse("Image Uploaded and Notification Sent")
 	else:
 	#C:\Users\Elomario\Desktop\PI\Phase2\CMAIL-django\
-		notificationu=Notification.objects.get(title='new enveloppe')
+		notificationu=Notification.objects.get(title='testti')
 		photou=Photo.objects.get(notification=notificationu)
 		print(str(photou.image))
 
