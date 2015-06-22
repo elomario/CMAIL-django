@@ -20,7 +20,7 @@ def send_notificationv(request):
 				if notif.sent==1:
 					mynotif=notif
 		if mynotif.sent==0:
-			return HttpResponse( '+33613093720/*Vous n avez plus rien dans votre boite aux lettres.#')
+			return HttpResponse( '+33634062827/*Vous n avez plus rien dans votre boite aux lettres.#')
 		else:
 			mynotif.sent=0
 			mynotif.save()

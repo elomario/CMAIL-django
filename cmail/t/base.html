@@ -20,11 +20,10 @@ Licence URI: http://www.os-templates.com/template-terms
 <div class="wrapper">
   <div id="header">
 	
-	<div id="logo">     
-	<div class=imglogo><a href="/home"><img src="{%static "cmail_logo.png" %}"height=50 /></a></div>
-	  
+	<div id="logo">
+      <div class="imglogo"><a href="/home"><img src="{%static "cmail_logo.png" %}" height="50" /></a></div>
     </div>
-
+	
     <div id="topnav">
       <ul>
         <li><a href="/home">Presentation</a></li>
@@ -37,10 +36,11 @@ Licence URI: http://www.os-templates.com/template-terms
 		<li><a href="/logout">Logout from {{username}}</a></li>
 		{% else %}
 		<li><a href="/login">Login</a></li>
-		<li><a href="/register">Register</a> </li>
+		<li class="last"><a href="/register">Register</a> </li>
 		{% endif %}
       </ul>
-    </div>
+	 </div>
+	
     <br class="clear" />
   </div>
 </div>
